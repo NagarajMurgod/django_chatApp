@@ -12,6 +12,7 @@ __pycache__/
 *.bak
 *.swp
 *.swo
+node_modules
 
 # Django migrations
 */migrations/
@@ -22,6 +23,7 @@ __pycache__/
 .idea/
 .vscode/
 *.iml
+*.sqlite3
 
 env
 .gitignore

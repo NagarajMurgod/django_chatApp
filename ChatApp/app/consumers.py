@@ -7,8 +7,6 @@ import asyncio
 class MyWebsocketConsumer(WebsocketConsumer):
     def connect(self):
         # print('websocket connected...')
-        print("channle layer..",self.channel_layer)
-        print("channel name..", self.channel_name)
         self.group_name = self.scope['url_route']['kwargs']["groupname"]
         # print(self.group_name)
         async_to_sync(self.channel_layer.group_add)(
