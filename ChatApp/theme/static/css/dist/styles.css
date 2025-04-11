@@ -811,6 +811,9 @@
   .bg-green-600 {
     background-color: var(--color-green-600);
   }
+  .bg-inherit {
+    background-color: inherit;
+  }
   .bg-slate-100 {
     background-color: var(--color-slate-100);
   }

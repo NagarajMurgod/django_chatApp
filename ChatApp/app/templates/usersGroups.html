@@ -1,14 +1,14 @@
 
-<section class="bg-slate-800 mt-4 mx-4 flex-1 rounded-md">
+<section id="userList" class="bg-slate-800 mt-4 mx-4 flex-1 rounded-md">
     <div class="py-8 px-[6%]">
         <div class="flex justify-around w-[100%] gap-5 border-b-gray-600 border-b-1">
-            <button class="text-white font-semibold text-[20px] bg-green-600 px-[2%] py-4  grow">
+            <button  hx-get="/friends/" hx-trigger="click" hx-target="#userList" hx-swap="outerHTML" class="{% if category == 'friends' %} bg-green-600 {% endif %}  text-white font-semibold text-[20px] cursor-pointer px-[2%] py-4  grow">
                 Friends
             </button>
-            <button class="text-white font-semibold text-[20px] px-[2%] py-4  grow">
+            <button hx-get="/groups/" hx-trigger="click" hx-target="#userList" hx-swap="outerHTML"  class="{% if category == 'groups' %} bg-green-600 {% endif %} font-semibold text-[20px] text-white  px-[2%] py-4  grow cursor-pointer">
                 Groups
             </button>
         </div>
-        {% include 'friendsList.html' %}
+        {% include 'friendGroupsList.html' %}
     </div>
 </section>

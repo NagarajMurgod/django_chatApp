@@ -2,8 +2,12 @@
 <div class="flex flex-col gap-10 mt-10">
     <div class="flex text-gray-200 gap-6 items-center relative">
         <div class="relative">
-            <img class="w-13 h-13 rounded-full object-cover" src="{% static 'images/username.jpeg' %}" alt="">
-            <div class="w-3 h-3 rounded-2xl bg-green-500 absolute right-0 bottom-1"></div>
+            {% if category == 'groups' %}
+                <img class="w-13 h-13 rounded-full object-cover" src="{% static 'images/username3.jpeg' %}" alt="">
+            {% else %}
+                <img class="w-13 h-13 rounded-full object-cover" src="{% static 'images/username.jpeg' %}" alt="">
+                <div class="w-3 h-3 rounded-2xl bg-green-500 absolute right-0 bottom-1"></div>
+            {% endif %}
         </div>
         <div>
             <h2 class="text-[19px] font-semibold tracking-wide"> Nagaraj M</h2>

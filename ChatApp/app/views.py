@@ -4,8 +4,16 @@ from django.views.generic import TemplateView
 from django.http import HttpResponse
 
 
-def HomeView(request):
-    return render(request, "mainChatapp.html")
+# def HomeView(request):
+#     return render(request, "mainChatapp.html")
 
-# class HomeView(TemplateView):
-#     template_name = "chatapp.html"
+class HomeView(TemplateView):
+    template_name = "mainChatapp.html"
+    extra_context = {
+        "category" : "friends"
+    }
+
+class GroupOrFriendsView(TemplateView):
+    template_name = "usersGroups.html"
+ 
+        
