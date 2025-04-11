@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 
 def HomeView(request):
-    return render(request, "chatapp.html")
+    return render(request, "mainChatapp.html")
 
 # class HomeView(TemplateView):
 #     template_name = "chatapp.html"
