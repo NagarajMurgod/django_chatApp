@@ -1,11 +1,11 @@
 
-<section id="userList" class="bg-slate-800 mt-4 mx-4 flex-1 rounded-md">
-    <div class="py-8 px-[6%]">
-        <div class="flex justify-around w-[100%] gap-5 border-b-gray-600 border-b-1">
-            <button  hx-get="/friends/" hx-trigger="click" hx-target="#userList" hx-swap="outerHTML" class="{% if category == 'friends' %} bg-green-600 {% endif %}  text-white font-semibold text-[20px] cursor-pointer px-[2%] py-4  grow">
+<section id="userList" class="bg-slate-800 my-[1rem] mx-[1rem] flex-1 rounded-md">
+    <div class="pb-5 px-[6%]">
+        <div class="h-[4.5rem] flex items-end justify-around w-[100%] gap-5 border-b-gray-600 border-b-1">
+            <button  hx-get="/friends/" hx-trigger="click" hx-target="#userList" hx-swap="outerHTML" class="{% if category != 'groups' %} bg-green-600 {% endif %} h-[3.2rem] text-white font-semibold text-[16px] cursor-pointer  grow">
                 Friends
             </button>
-            <button hx-get="/groups/" hx-trigger="click" hx-target="#userList" hx-swap="outerHTML"  class="{% if category == 'groups' %} bg-green-600 {% endif %} font-semibold text-[20px] text-white  px-[2%] py-4  grow cursor-pointer">
+            <button hx-get="/groups/" hx-trigger="click" hx-target="#userList" hx-swap="outerHTML"  class="{% if category == 'groups' %} bg-green-600  {% endif %} h-[3.2rem] font-semibold text-[16px] text-white grow cursor-pointer">
                 Groups
             </button>
         </div>

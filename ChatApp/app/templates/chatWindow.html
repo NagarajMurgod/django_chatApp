@@ -1,48 +1,31 @@
 {% load static %}
-<section class="flex-3 bg-slate-800 mt-4 mx-4 flex-1 rounded-md flex flex-col">
-    <div class="flex gap-8 border-b-gray-600 border-b-2 py-5 px-9">
-        <img class="w-15 h-15 rounded-full object-cover" src="{% static 'images/username.jpeg' %}" alt="">
+<section class="flex-3 bg-slate-800 my-[1rem] mr-[1rem] max-h-[100%] rounded-md flex flex-col">
+    <div class="flex gap-6 border-b-gray-600 border-b-2 h-[4.5rem] items-center px-9">
+        <img class="w-11 h-11 rounded-full object-cover" src="{% static 'images/username.jpeg' %}" alt="">
         <div>
-            <h2 class="text-[19px] font-semibold tracking-wide text-white"> Nagaraj M</h2>
-            <p class="text-gray-300 mt-1">Online</p>
+            <h2 class="text-[16px] font-semibold tracking-wide text-white"> Nagaraj M</h2>
+            <p class="text-gray-300 text-[0.8rem]">Online</p>
         </div>
     </div>
-    <div class="mx-10 my-8 flex flex-col gap-10 flex-9">
-        <div class="flex gap-5">
-            <img class="w-10 h-10 rounded-full object-cover" src="{% static 'images/username1.jpeg' %}" alt="">
-            <div class="bg-gray-300 text-[1.2rem] max-w-[50%]  p-4 rounded-tr-md rounded-br-md rounded-bl-md">
-                Hi how are you buddy Lorem 
-            </div>
-        </div>
-        <div class="flex gap-5 flex-row-reverse">
-            <img class="w-10 h-10 rounded-full object-cover" src="{% static 'images/username1.jpeg' %}" alt="">
-            <div class="bg-green-600 text-[1.2rem] text-white max-w-[50%]  p-4 rounded-tl-md rounded-br-md rounded-bl-md">
-                Hi how are you buddy Lorem 
-            </div>
-        </div>
-        <div class="flex gap-5">
-            <img class="w-10 h-10 rounded-full object-cover" src="{% static 'images/username1.jpeg' %}" alt="">
-            <div class="bg-gray-300 text-[1.2rem] max-w-[50%]  p-4 rounded-tr-md rounded-br-md rounded-bl-md">
-                Hi how are you buddy Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, laboriosam!
-            </div>
-        </div>
-        <div class="flex gap-5 flex-row-reverse">
-            <img class="w-10 h-10 rounded-full object-cover" src="{% static 'images/username1.jpeg' %}" alt="">
-            <div class="bg-green-600 text-[1.2rem] text-white max-w-[50%]  p-4 rounded-tl-md rounded-br-md rounded-bl-md">
-                Hi how are you buddy Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor necessitatibus excepturi maiores minima qui veritatis molestias. Necessitatibus, recusandae natus ex ipsa doloremque optio similique, fugit non distinctio facilis sunt voluptatum.
-            </div>
-        </div>
+    <div class="scroll-smooth px-10 my-8 flex flex-col gap-10 flex-1 overflow-y-auto">
+        {% include 'MessageBlock.html' %}
+        {% include 'MessageBlock.html' %}
+        {% include 'MessageBlock.html' %}
+        {% include 'MessageBlock.html' %}
+        {% include 'MessageBlock.html' %}
+        {% include 'MessageBlock.html' %}
+    
     </div>
-    <div class="flex justify-center gap-5 flex-1 border-t-gray-600 border-t-2 items-center">
+    <div class="flex justify-center gap-5 h-[4.5rem] border-t-gray-600 border-t-2 items-center">
         <button>
-            <img src="{% static 'images/mic.svg' %}"  alt="">
+            <img src="{% static 'images/mic.svg' %}" class="h-6 w-6"  alt="">
         </button>
-        <div class="w-[80%] rounded-[3rem] h-[70%] bg-slate-600">
-          <input class="w-full h-full bg-transparent text-[1.2rem] placeholder:text-slate-400 placeholder:text-[1.2rem] outline-none  text-white text-sm  rounded-md px-10" placeholder="Type here..." />
+        <div class="w-[80%] rounded-[3rem] h-[60%] bg-slate-600">
+          <input class="w-full h-full bg-transparent text-[1rem] placeholder:text-slate-400 placeholder:text-[1rem] outline-none  text-white text-sm  rounded-md px-10" placeholder="Type here..." />
         </div>
-        <img src="{% static 'images/attachment1.svg' %}" class="w-[2rem] h-[2rem]" alt="">
+        <img src="{% static 'images/attachment1.svg' %}" class="w-[1.5rem] h-[1.5rem]" alt="">
         <button class="bg-green-600 p-3 rounded-full cursor-pointer">
-            <img src="{% static 'images/send.svg' %}" alt="">
+            <img src="{% static 'images/send.svg' %}" class="h-5 w-5" alt="">
         </button>
     </div>
 </section>

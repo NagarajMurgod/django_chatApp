@@ -12,14 +12,14 @@
     {% htmx_script %}
   </head>
   
-  <body class="bg-slate-700 flex flex-col h-screen">
-    <section class="text-white bg-slate-800 flex justify-between px-[5%] py-2">
+  <body class="bg-slate-700">
+    <section class="text-white bg-slate-800 flex justify-between px-[5%] h-[5rem]">
       <div class="flex items-center font-semibold font-serif text-3xl gap-3">
-        <img src="{% static 'images/logo.png' %}" alt="">
-        <h2>Chat App</h2>
+        <img class="w-15 h-15" src="{% static 'images/logo.png' %}" alt="">
+        <h3 class="text-[1.5rem]">Chat App</h3>
       </div>
       <div class="flex items-center gap-10">
-        <div class="flex px-4 py-3 rounded-md border-none bg-slate-700 overflow-hidden max-w-md mx-auto h-12">
+        <div class="flex px-4  rounded-md border-none bg-slate-700 overflow-hidden max-w-md mx-auto h-9">
           <input type="email" placeholder="Search"
             class="w-full outline-none bg-transparent text-gray-100 text-md" />
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="16px" class="fill-gray-100">
@@ -29,8 +29,8 @@
           </svg>
         </div>
         <div class="flex items-center gap-5">
-          <img class="w-12 h-12 rounded-full" src="{% static 'images/username.jpeg' %}" alt="">
-          <h2 class="text-rose-50 text-2xl">Nagaraj M</h2>
+          <img class="w-9 h-9 rounded-full" src="{% static 'images/username.jpeg' %}" alt="">
+          <h2 class="text-rose-50 text-1xl">Nagaraj M</h2>
         </div>
       </div>
     </section>
