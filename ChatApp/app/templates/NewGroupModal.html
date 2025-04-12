@@ -1,0 +1,24 @@
+{% load static %}
+
+<div class="absolute top-0 left-0 border-1 h-screen w-screen" style="background-color: rgba(112, 112, 112, 0.623); ">
+    <div class="flex flex-col gap-3 absolute top-[40%] left-[50%] max-h-[70vh] min-h-[30vh] w-[25rem] translate-[-50%] bg-slate-800 px-[1.5rem] py-[1.2rem]">
+        <div class="pb-[0.8rem]">
+            <h1 class="text-gray-300 font-semibold mb-2">Group Name</h1>
+            <input type="text" placeholder="Type here.." class="placeholder:text-gray-400 py-1 px-2 rounded-md w-full outline-none text-gray-200 border-gray-600 border-1">
+        </div>
+        <div class="pb-[0.8rem]">
+            <h1 class="text-gray-300 font-semibold">Add Members</h1>
+        </div>
+        <div class="flex flex-1 flex-col gap-3 overflow-y-scroll">
+            <label for="username" class="flex items-center gap-3 relative cursor-pointer">
+                <img class="w-8 h-8 rounded-full object-cover" src="{% static 'images/username3.jpeg' %}" alt="">
+                <h2 class="text-[0.9rem] text-gray-300 font-semibold tracking-wide"> Nagaraj M</h2>
+                <input id="username" class="absolute right-0 mr-2 accent-green-400" type="checkbox">
+            </label>
+        </div>
+        <div class="h-[2rem] flex gap-3 mt-3 justify-end">
+            <button class="bg-slate-300 font-semibold px-3 rounded-sm cursor-pointer">cancle</button>
+            <button class="bg-green-600 font-semibold px-3 rounded-sm text-gray-200 cursor-pointer">create</button>
+        </div>
+    </div>
+</div>
