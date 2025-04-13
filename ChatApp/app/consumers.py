@@ -4,6 +4,7 @@ from asgiref.sync import async_to_sync
 import json
 import asyncio
 
+
 class MyWebsocketConsumer(WebsocketConsumer):
     def connect(self):
         # print('websocket connected...')

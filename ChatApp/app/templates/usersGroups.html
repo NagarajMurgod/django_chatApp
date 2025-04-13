@@ -12,7 +12,7 @@
         {% include 'friendGroupsList.html' %}
         {% include 'NewGroupModal.html' %}
         <div class="h-[3.5rem] flex items-center">
-            <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="rounded-md text-white flex-1 justify-center h-full flex gap-2 items-center cursor-pointer hover:bg-slate-600">
+            <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="rounded-md text-white flex-1 justify-center h-full flex gap-2 items-center cursor-pointer hover:bg-slate-600" hx-on:click="document.getElementById('NewGroupModal').classList.remove('hidden')">
                 <div class="rounded-full bg-green-600 py-[0.2rem] px-[0.6rem]">
                     <i class="fa fa-plus rounded-full"></i> 
                 </div>

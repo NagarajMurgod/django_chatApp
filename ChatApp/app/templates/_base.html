@@ -13,7 +13,8 @@
     {% htmx_script %}
   </head>
   
-  <body class="bg-slate-700">
+  <body class="bg-slate-700 h-screen">
+    {% if user.is_authenticated %}
     <section class="text-white bg-slate-800 flex justify-between px-[5%] h-[5rem]">
       <div class="flex items-center font-semibold font-serif text-3xl gap-3">
         <img class="w-15 h-15" src="{% static 'images/logo.png' %}" alt="">
@@ -35,6 +36,7 @@
         </div>
       </div>
     </section>
+    {% endif %}
     {% block body %}
     {% endblock %}
   </body>
