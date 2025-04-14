@@ -34,6 +34,13 @@
           <img class="w-9 h-9 rounded-full" src="{% static 'images/username.jpeg' %}" alt="">
           <h2 class="text-rose-50 text-1xl">Nagaraj M</h2>
         </div>
+        <form action="/logout/" method="post">
+          {% csrf_token %}
+          <button class="cursor-pointer" >
+            <i title="logout" class="fa fa-sign-out" style="font-size: 1.5rem;" aria-hidden="true"></i>
+          </button>
+        </form>
+    
       </div>
     </section>
     {% endif %}

@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from django.http import HttpResponse
 from django.views.generic import CreateView
 from django.contrib.auth import get_user_model
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView,LogoutView
 from .forms import RegisterForm,LoginForm
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -19,6 +19,7 @@ class HomeView(LoginRequiredMixin,TemplateView):
         "category" : "friends"
     }
 
+
 class GroupOrFriendsView(LoginRequiredMixin,TemplateView):
     template_name = "usersGroups.html"
 
@@ -29,19 +30,19 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
 
     def get(self, request, *args, **kwargs):
-    
-        if request.user.is_authenticated:
+
+        if self.request.user.is_authenticated:
             return redirect('home')
         return super().get(request, *args, **kwargs)
-                
+
+    
+
 
 class SignInView(LoginView):
     template_name = 'login.html'
-    form_class = LoginForm
+    # form_class = LoginForm
     success_url = reverse_lazy('home')
 
-    def get(self, request, *args, **kwargs):
-        """Handle GET requests: instantiate a blank version of the form."""
-        if request.user.is_authenticated:
-            return redirect('home')
-        return self.render_to_response(self.get_context_data())
+
+class SignOutView(LogoutView):
+    pass
