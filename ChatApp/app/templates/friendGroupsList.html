@@ -1,6 +1,6 @@
 {% load static %}
 <div class="flex flex-col flex-1 gap-10 mt-[2rem]">
-    <div class="flex text-gray-200 gap-6 items-center relative">
+    <div hx-get="/showChat/9/" hx-target="#chatWindow" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="flex text-gray-200 gap-6 items-center relative hover:bg-slate-600 cursor-pointer p-2 rounded-lg">
         <div class="relative">
             {% if category == 'groups' %}
                 <img class="w-11 h-11 rounded-full object-cover" src="{% static 'images/username3.jpeg' %}" alt="">
@@ -13,6 +13,6 @@
             <h2 class="text-[1rem] font-semibold tracking-wide"> Nagaraj M</h2>
             <p class="text-[0.9rem]">Hi how are you? </p>
         </div>
-        <p class="absolute text-[0.9rem] top-0 right-0">8:24pm</p>
+        <p class="absolute text-[0.9rem] top-0 right-0 p-2">8:24pm</p>
     </div>
 </div>

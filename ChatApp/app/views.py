@@ -35,7 +35,9 @@ class SignUpView(CreateView):
             return redirect('home')
         return super().get(request, *args, **kwargs)
 
-    
+
+class ChatWindowView(LoginRequiredMixin, TemplateView):
+    template_name = 'Rightbar/chatWindow.html' 
 
 
 class SignInView(LoginView):
