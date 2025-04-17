@@ -12,7 +12,7 @@
     --color-green-400: oklch(79.2% 0.209 151.711);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-green-600: oklch(62.7% 0.194 149.214);
-    --color-rose-50: oklch(96.9% 0.015 12.422);
+    --color-green-700: oklch(52.7% 0.154 150.069);
     --color-slate-300: oklch(86.9% 0.022 252.894);
     --color-slate-400: oklch(70.4% 0.04 256.788);
     --color-slate-500: oklch(55.4% 0.046 257.417);
@@ -20,20 +20,16 @@
     --color-slate-700: oklch(37.2% 0.044 257.287);
     --color-slate-800: oklch(27.9% 0.041 260.031);
     --color-gray-50: oklch(98.5% 0.002 247.839);
-    --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-400: oklch(70.7% 0.022 261.325);
     --color-gray-600: oklch(44.6% 0.03 256.802);
     --color-white: #fff;
     --spacing: 0.25rem;
-    --container-md: 28rem;
     --text-sm: 0.875rem;
     --text-sm--line-height: calc(1.25 / 0.875);
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
-    --text-3xl: 1.875rem;
-    --text-3xl--line-height: calc(2.25 / 1.875);
     --text-5xl: 3rem;
     --text-5xl--line-height: 1;
     --font-weight-semibold: 600;
@@ -251,14 +247,50 @@
       max-width: 96rem;
     }
   }
+  .m-3 {
+    margin: calc(var(--spacing) * 3);
+  }
+  .m-4 {
+    margin: calc(var(--spacing) * 4);
+  }
+  .m-\[0\.6rem\] {
+    margin: 0.6rem;
+  }
+  .m-\[01rem\] {
+    margin: 01rem;
+  }
+  .mx-3 {
+    margin-inline: calc(var(--spacing) * 3);
+  }
+  .mx-4 {
+    margin-inline: calc(var(--spacing) * 4);
+  }
+  .mx-\[0\.4rem\] {
+    margin-inline: 0.4rem;
+  }
+  .mx-\[0\.6rem\] {
+    margin-inline: 0.6rem;
+  }
   .mx-\[1rem\] {
     margin-inline: 1rem;
   }
   .mx-auto {
     margin-inline: auto;
   }
+  .my-1 {
+    margin-block: calc(var(--spacing) * 1);
+  }
+  .my-3 {
+    margin-block: calc(var(--spacing) * 3);
+  }
   .my-8 {
     margin-block: calc(var(--spacing) * 8);
+  }
+  .my-\[0\.4rem\] {
+    margin-block: 0.4rem;
+  }
+  .my-\[0\.6rem\] {
+    margin-block: 0.6rem;
   }
   .my-\[1rem\] {
     margin-block: 1rem;
@@ -272,11 +304,17 @@
   .mt-5 {
     margin-top: calc(var(--spacing) * 5);
   }
+  .mt-\[1rem\] {
+    margin-top: 1rem;
+  }
   .mt-\[2rem\] {
     margin-top: 2rem;
   }
   .mr-2 {
     margin-right: calc(var(--spacing) * 2);
+  }
+  .mr-\[0\.6rem\] {
+    margin-right: 0.6rem;
   }
   .mr-\[1rem\] {
     margin-right: 1rem;
@@ -311,9 +349,6 @@
   .h-11 {
     height: calc(var(--spacing) * 11);
   }
-  .h-15 {
-    height: calc(var(--spacing) * 15);
-  }
   .h-\[1\.5rem\] {
     height: 1.5rem;
   }
@@ -328,9 +363,6 @@
   }
   .h-\[4\.5rem\] {
     height: 4.5rem;
-  }
-  .h-\[5rem\] {
-    height: 5rem;
   }
   .h-\[60\%\] {
     height: 60%;
@@ -374,9 +406,6 @@
   .w-11 {
     width: calc(var(--spacing) * 11);
   }
-  .w-15 {
-    width: calc(var(--spacing) * 15);
-  }
   .w-\[1\.5rem\] {
     width: 1.5rem;
   }
@@ -397,9 +426,6 @@
   }
   .max-w-\[50\%\] {
     max-width: 50%;
-  }
-  .max-w-md {
-    max-width: var(--container-md);
   }
   .flex-1 {
     flex: 1;
@@ -433,9 +459,6 @@
   .justify-around {
     justify-content: space-around;
   }
-  .justify-between {
-    justify-content: space-between;
-  }
   .justify-center {
     justify-content: center;
   }
@@ -456,9 +479,6 @@
   }
   .gap-10 {
     gap: calc(var(--spacing) * 10);
-  }
-  .overflow-hidden {
-    overflow: hidden;
   }
   .overflow-y-auto {
     overflow-y: auto;
@@ -515,10 +535,6 @@
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 2px;
   }
-  .border-none {
-    --tw-border-style: none;
-    border-style: none;
-  }
   .border-gray-600 {
     border-color: var(--color-gray-600);
   }
@@ -546,6 +562,9 @@
   .bg-slate-300 {
     background-color: var(--color-slate-300);
   }
+  .bg-slate-500 {
+    background-color: var(--color-slate-500);
+  }
   .bg-slate-600 {
     background-color: var(--color-slate-600);
   }
@@ -558,9 +577,6 @@
   .bg-transparent {
     background-color: transparent;
   }
-  .fill-gray-100 {
-    fill: var(--color-gray-100);
-  }
   .object-cover {
     object-fit: cover;
   }
@@ -569,6 +585,9 @@
   }
   .p-3 {
     padding: calc(var(--spacing) * 3);
+  }
+  .p-6 {
+    padding: calc(var(--spacing) * 6);
   }
   .p-10 {
     padding: calc(var(--spacing) * 10);
@@ -594,9 +613,6 @@
   .px-\[1\.5rem\] {
     padding-inline: 1.5rem;
   }
-  .px-\[5\%\] {
-    padding-inline: 5%;
-  }
   .px-\[6\%\] {
     padding-inline: 6%;
   }
@@ -609,14 +625,17 @@
   .py-\[0\.2rem\] {
     padding-block: 0.2rem;
   }
+  .py-\[0\.6rem\] {
+    padding-block: 0.6rem;
+  }
   .py-\[1\.2rem\] {
     padding-block: 1.2rem;
   }
-  .pt-2 {
-    padding-top: calc(var(--spacing) * 2);
+  .py-\[1rem\] {
+    padding-block: 1rem;
   }
-  .pr-2 {
-    padding-right: calc(var(--spacing) * 2);
+  .py-\[2rem\] {
+    padding-block: 2rem;
   }
   .pb-5 {
     padding-bottom: calc(var(--spacing) * 5);
@@ -634,10 +653,6 @@
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
-  .text-3xl {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
-  }
   .text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
@@ -651,9 +666,6 @@
   }
   .text-\[0\.9rem\] {
     font-size: 0.9rem;
-  }
-  .text-\[1\.5rem\] {
-    font-size: 1.5rem;
   }
   .text-\[1rem\] {
     font-size: 1rem;
@@ -677,17 +689,11 @@
     --tw-tracking: var(--tracking-wide);
     letter-spacing: var(--tracking-wide);
   }
-  .text-gray-100 {
-    color: var(--color-gray-100);
-  }
   .text-gray-200 {
     color: var(--color-gray-200);
   }
   .text-gray-300 {
     color: var(--color-gray-300);
-  }
-  .text-rose-50 {
-    color: var(--color-rose-50);
   }
   .text-white {
     color: var(--color-white);
@@ -709,8 +715,13 @@
     color: var(--color-slate-400);
   }
   @media (hover: hover) {
-    .hover\:bg-slate-500:hover {
-      background-color: var(--color-slate-500);
+    .hover\:bg-green-500:hover {
+      background-color: var(--color-green-500);
+    }
+  }
+  @media (hover: hover) {
+    .hover\:bg-green-700:hover {
+      background-color: var(--color-green-700);
     }
   }
   @media (hover: hover) {

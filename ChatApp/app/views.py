@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView,ListView
 # Create your views here.
 from django.http import HttpResponse
 from django.views.generic import CreateView
@@ -20,12 +20,13 @@ class HomeView(LoginRequiredMixin,TemplateView):
     }
 
 
-class GroupOrFriendsView(LoginRequiredMixin,TemplateView):
-    template_name = "usersGroups.html"
-
+class GroupOrFriendsView(LoginRequiredMixin,ListView):
+    template_name = "leftbar/usersGroups.html"
+    model = User
+  
  
 class SignUpView(CreateView):
-    template_name = "Register.html"
+    template_name = "authentication/Register.html"
     form_class = RegisterForm
     success_url = reverse_lazy('login')
 
@@ -37,11 +38,11 @@ class SignUpView(CreateView):
 
 
 class ChatWindowView(LoginRequiredMixin, TemplateView):
-    template_name = 'Rightbar/chatWindow.html' 
+    template_name = 'rightbar/chatWindow.html' 
 
 
 class SignInView(LoginView):
-    template_name = 'login.html'
+    template_name = 'authentication/login.html'
     # form_class = LoginForm
     success_url = reverse_lazy('home')
 

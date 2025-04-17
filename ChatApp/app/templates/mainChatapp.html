@@ -1,8 +1,9 @@
 {% extends '_base.html' %}
 
 {% block body %}
-    <div class="flex h-[calc(100vh-5rem)]">   
-        {% include 'usersGroups.html' %}
-        {% include 'Rightbar/chatWindowWrapper.html' %}
+    <div class="flex h-full">
+        {% include 'navbar/navbar.html' %} 
+        {% include 'leftbar/usersGroups.html' %}
+        {% include 'rightbar/chatWindowWrapper.html' %}
     </div>
 {% endblock %}
