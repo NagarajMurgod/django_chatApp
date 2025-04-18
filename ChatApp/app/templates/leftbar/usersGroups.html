@@ -1,29 +1,18 @@
 {% load static %}
 <section id="userList" class="bg-slate-800 my-[0.6rem] mx-[0.6rem] flex-1 rounded-md">
-    <div class="pb-5 px-[6%] h-[100%] flex flex-col">
-        <div class="h-[4.5rem] flex items-end justify-around w-[100%] gap-5 border-b-gray-600 border-b-1">
-            <button  hx-get="/friends/" hx-trigger="click" hx-target="#userList" hx-swap="outerHTML" class="{% if category != 'groups' %} bg-green-600 {% endif %} h-[3.2rem] text-white font-semibold text-[16px] cursor-pointer  grow">
-                Friends
-            </button>
-            <button hx-get="/groups/" hx-trigger="click" hx-target="#userList" hx-swap="outerHTML"  class="{% if category == 'groups' %} bg-green-600  {% endif %} h-[3.2rem] font-semibold text-[16px] text-white grow cursor-pointer">
-                Groups
-            </button>
+    <div class="pb-5 px-[4%] h-[100%] flex flex-col">
+        <div class="h-[4.5rem] flex justify-between w-[100%] gap-5 border-b-gray-600 border-b-1">
+            <div class="flex items-center">
+                <img class="h-12 w-12" src="{% static 'images/logo.png' %}" alt="">
+                <h1 class="text-gray-300 font-bold">Chat App</h1>
+            </div>
+            <div class="flex items-center">
+                <i title="New Chat" class="fa fa-plus-square-o cursor-pointer text-gray-300 hover:text-green-500" style="font-size: 1.5rem;"></i> 
+            </div>
         </div>
         {% include 'leftbar/friendGroupsList.html' %}
         {% include 'NewGroupModal.html' %}
         <div class="h-[3.5rem] flex items-center">
-            <button data-modal-target="static-modal" data-modal-toggle="static-modal" class="rounded-md text-white flex-1 justify-center h-full flex gap-2 items-center cursor-pointer hover:bg-slate-600" hx-on:click="document.getElementById('NewGroupModal').classList.remove('hidden')">
-                <div class="rounded-full bg-green-600 py-[0.2rem] px-[0.6rem]">
-                    <i class="fa fa-plus rounded-full"></i> 
-                </div>
-                <p class="font-semibold">New Group</p>
-            </button>
-            <button class="rounded-md text-white flex-1 justify-center h-full flex gap-2 items-center cursor-pointer hover:bg-slate-600 ">
-                <div class="rounded-full bg-red-500 py-[0.2rem] px-[0.6rem]">
-                    <i class="fa fa-trash" aria-hidden="true"></i> 
-                </div>
-                <p class="font-semibold">Exit Group</p>
-            </button>
         </div>
     </div>
 </section>

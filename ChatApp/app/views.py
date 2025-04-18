@@ -21,7 +21,8 @@ class HomeView(LoginRequiredMixin,TemplateView):
 
 
 class GroupOrFriendsView(LoginRequiredMixin,ListView):
-    template_name = "leftbar/usersGroups.html"
+    template_name = "leftbar/friendGroupsList.html"
+    extra_context = {'load' : True}
     model = User
   
  
