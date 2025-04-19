@@ -1,7 +1,7 @@
 {% load static %}
-<div class="flex flex-col flex-1 gap-2 mt-[1rem]" {% if not load %} hx-trigger="load" {% endif %} hx-get="/channels/" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+<div class="flex flex-col flex-1 gap-2 mt-[1rem]" id="channels">
     {% for user in object_list %}
-    <div hx-get="/showChat/9/" hx-target="#chatWindow" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="flex text-gray-200 gap-6 items-center relative hover:bg-slate-600 cursor-pointer p-2 rounded-lg">
+    <div hx-get="/showChat/9/" hx-trigger="click"  hx-target="#chatWindow" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="flex text-gray-200 gap-6 items-center relative hover:bg-slate-600 cursor-pointer p-2 rounded-lg">
         <div class="relative">
             <img class="w-11 h-11 rounded-full object-cover" src="media/{{user.profile_picture }}" alt="">
             <div class="w-3 h-3 rounded-2xl bg-green-500 absolute right-0 bottom-1"></div>

@@ -1,5 +1,5 @@
 {% load static %}
-<div class="w-[100%] bg-slate-800 h-full rounded-md flex flex-col">
+<div id = "chatWindow" class="w-[100%] bg-slate-800 h-full rounded-md flex flex-col">
     <div class="flex gap-6 border-b-gray-600 border-b-2 h-[4.5rem] items-center px-9">
         <img class="w-11 h-11 rounded-full object-cover" src="{% static 'images/username.jpeg' %}" alt="">
         <div>
@@ -9,7 +9,7 @@
     </div>
     <div class="scroll-smooth px-10 my-8 flex flex-col gap-10 flex-1 overflow-y-auto">
         <!-- {% include 'MessageBlock.html' %} -->
-        {% include 'rightbar/partials/chatText.html' %}
+        {% include 'rightbar/partials/chatText.html' with message=messages %}
     </div>
     <div class="flex justify-center gap-5 h-[4.5rem] border-t-gray-600 border-t-2 items-center">
         <button>
