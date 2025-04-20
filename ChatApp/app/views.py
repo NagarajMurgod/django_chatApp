@@ -38,6 +38,7 @@ class SignUpView(CreateView):
         if self.request.user.is_authenticated:
             return redirect('home')
         return super().get(request, *args, **kwargs)
+        
 
 #/showchat/<int:user_id>
 class ChatWindowView(LoginRequiredMixin, TemplateView):

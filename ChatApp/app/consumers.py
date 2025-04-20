@@ -3,6 +3,7 @@ import time
 from asgiref.sync import async_to_sync
 import json
 import asyncio
+from django.template.loader import get_template
 
 
 class MyWebsocketConsumer(WebsocketConsumer):
@@ -51,16 +52,17 @@ class MyAsyncWebsocketConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data = None, bytes_data=None):
         data = json.loads(text_data)
         message = data.get("message")
-        print("dfd.....", self.group_name)
+        html = get_template("rightbar/partials/chatText.html").render(context={'message': message})
+        # self.send(text_data=html)
         await self.channel_layer.group_send(self.group_name, {
             "type" : "chat.message",
-            "message" : message
+            "message" : html
         })
 
     
     async def chat_message(self, event):
         message = event["message"]
-        await self.send(text_data=json.dumps({"message": message}))
+        await self.send(text_data=message)
 
     
     async def disconnect(self, closed_code):
