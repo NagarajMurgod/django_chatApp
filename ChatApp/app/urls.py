@@ -1,5 +1,5 @@
 from django.urls import path,include
-from .views import HomeView,GroupOrFriendsView,SignUpView,SignInView,SignOutView,ChatWindowView
+from .views import HomeView,GroupOrFriendsView,SignUpView,SignInView,SignOutView,ChatHistoryView,StartNewChatView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -8,6 +8,7 @@ urlpatterns = [
     path("signup/",SignUpView.as_view(),name='register'),
     path("signin/",SignInView.as_view(redirect_authenticated_user=True), name='login'),
     path("logout/",SignOutView.as_view(), name='logout'),
-    path("showChat/<int:user_id>/",ChatWindowView.as_view()),
+    path("newchat/<int:user_id>/",StartNewChatView.as_view()),
+    path("showchat/<str:group_id>/",ChatHistoryView.as_view(),name = 'listChatMessages'),
     path("channels/", GroupOrFriendsView.as_view()),
 ]

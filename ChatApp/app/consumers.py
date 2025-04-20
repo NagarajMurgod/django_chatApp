@@ -69,3 +69,6 @@ class MyAsyncWebsocketConsumer(AsyncWebsocketConsumer):
         print('webscoket disconnected....', closed_code )
         # self.group_name = self.scope.get("url_route").get("kwargs").get("groupname")
         await self.channel_layer.group_discard(self.group_name, self.channel_name)
+    
+    async def save_message(self):
+        ...

@@ -7,7 +7,9 @@
                 <h1 class="text-gray-300 font-bold">Chat App</h1>
             </div>
             <div class="flex items-center">
-                <i title="New Chat" class="fa fa-plus-square-o cursor-pointer text-gray-300 hover:text-green-500" style="font-size: 1.5rem;"></i> 
+                <button hx-on:click="document.getElementById('NewGroupModal').classList.remove('hidden')" >
+                    <i title="New Chat" class="fa fa-plus-square-o cursor-pointer text-gray-300 hover:text-green-500" style="font-size: 1.5rem;"></i> 
+                </button>
             </div>
         </div>
         {% include 'leftbar/friendGroupsList.html' %}
