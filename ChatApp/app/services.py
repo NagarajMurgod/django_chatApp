@@ -9,7 +9,12 @@ def _get_privateChat_obj(user1, user2):
 
 
 def get_chat_messages(group_id):
-    messages = Messages.objects.filter(chat__group_id = group_id)
+    # messages = Messages.objects.filter(chat__group_id = group_id)
+    messages = []
+    chat = Chats.objects.filter(group_id=group_id).first()
+    if chat:
+        messages = chat.messages.all()
+
     return messages
 
 

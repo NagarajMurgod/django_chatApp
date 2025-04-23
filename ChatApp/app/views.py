@@ -45,7 +45,7 @@ class SignUpView(CreateView):
 
 #/showchat/<int:user_id>
 class ChatHistoryView(LoginRequiredMixin, ListView):
-    template_name = 'rightbar/chatWindowWrapper.html' 
+    template_name = 'rightbar/channelchatWindow.html' 
 
     def get_queryset(self):
         group_id = self.kwargs.get('group_id')
