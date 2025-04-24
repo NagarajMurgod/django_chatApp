@@ -12,9 +12,7 @@ def get_chat_messages(group_id):
     # messages = Messages.objects.filter(chat__group_id = group_id)
     messages = []
     chat = Chats.objects.filter(group_id=group_id).first()
-    if chat:
-        messages = chat.messages.all()
-
+    messages = chat.messages.all()
     return messages
 
 
@@ -33,5 +31,8 @@ def get_or_create_privateChat(user1, user2):
     return new_chat, True
 
 
-    
+@database_sync_to_async
+def save_message(sender, message, group_id):
+    chat = Chats.objects.filter(group_id=group_id).first()
+    Messages.objects.create(chat=chat, content=message, sender=sender)
     

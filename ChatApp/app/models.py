@@ -25,6 +25,7 @@ class Chats(TimeStampedModel):
     def __str__(self):
         return f"{self.group_name}_{self.group_id}"
 
+
 class Messages(TimeStampedModel):
     chat = models.ForeignKey(Chats,related_name='messages', on_delete=models.CASCADE)
     sender = models.ForeignKey(CustomUser,on_delete=models.CASCADE)

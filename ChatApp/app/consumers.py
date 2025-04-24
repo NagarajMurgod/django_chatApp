@@ -4,7 +4,7 @@ from asgiref.sync import async_to_sync
 import json
 import asyncio
 from django.template.loader import get_template
-
+from .services import save_message
 
 class MyWebsocketConsumer(WebsocketConsumer):
     def connect(self):
@@ -53,6 +53,8 @@ class MyAsyncWebsocketConsumer(AsyncWebsocketConsumer):
         data = json.loads(text_data)
         message = data.get("message")
         html = get_template("rightbar/partials/chatText.html").render(context={'message': message})
+        user = self.scope.get('user')
+        await save_message(sender = user, message = message, group_id = self.group_name)
         # self.send(text_data=html)
         await self.channel_layer.group_send(self.group_name, {
             "type" : "chat.message",

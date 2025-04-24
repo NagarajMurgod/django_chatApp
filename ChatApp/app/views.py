@@ -51,6 +51,11 @@ class ChatHistoryView(LoginRequiredMixin, ListView):
         group_id = self.kwargs.get('group_id')
         messages = get_chat_messages(group_id)
         return messages
+    
+    def get_context_data(self):
+        context_data = super().get_context_data()
+        context_data['group_id'] = self.kwargs.get('group_id')
+        return context_data
 
 
 
