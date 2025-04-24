@@ -1,19 +1,19 @@
 {% load static %}
 <div id = "chatWindow" class="w-[100%] bg-slate-800 h-full rounded-md flex flex-col" hx-ws="connect:ws/awsc/{{group_id}}/" >
     <div class="flex gap-6 border-b-gray-600 border-b-2 h-[4.5rem] items-center px-9">
-        <img class="w-11 h-11 rounded-full object-cover" src="{% static 'images/username.jpeg' %}" alt="">
+        <img class="w-11 h-11 rounded-full object-cover" src="media/{{other_user.profile_picture}}" alt="">
         <div>
-            <h2 class="text-[16px] font-semibold tracking-wide text-white"> Nagaraj M</h2>
+            <h2 class="text-[16px] font-semibold tracking-wide text-white">{{other_user.username}}</h2>
             <p class="text-gray-300 text-[0.8rem]">Online</p>
         </div>
     </div>
     <div id="messageWindow" class="scroll-smooth px-10 my-8 flex flex-col gap-5 flex-1 overflow-y-auto" >
         {% for msg in object_list %}
-        <div class="flex gap-5" >
+        <div class="flex gap-5 {% if user.id == msg.sender.id %} flex-row-reverse {% endif %}" >
             <!-- <img class="w-9 h-9 rounded-full object-cover" src="{% static 'images/username1.jpeg' %}" alt=""> -->
             <div class="flex flex-col max-w-[50%] gap-2 ">
                 <p class="text-gray-400 text-[0.9rem]">2:00pm</p>
-                <div class="bg-gray-300 text-[1rem] py-2 px-3 rounded-tl-md rounded-br-md rounded-bl-md">
+                <div class="bg-gray-300 text-[1rem] py-2 px-3 rounded-tl-md rounded-br-md rounded-bl-md {% if user.id == msg.sender.id %} bg-green-600 text-white {% endif %}">
                     {{msg.content}}
                 </div>
             </div>

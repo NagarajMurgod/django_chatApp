@@ -8,12 +8,13 @@ def _get_privateChat_obj(user1, user2):
     return chat
 
 
-def get_chat_messages(group_id):
+def get_chat_messages(group_id,current_user):
     # messages = Messages.objects.filter(chat__group_id = group_id)
-    messages = []
-    chat = Chats.objects.filter(group_id=group_id).first()
-    messages = chat.messages.all()
-    return messages
+    chat = Chats.objects.filter(group_id=group_id).prefetch_related('members').first()
+    messages = chat.messages.select_related('sender').all()
+    member = chat.members.exclude(id=current_user.id).first()
+    return member,messages
+
 
 
 def get_or_create_privateChat(user1, user2):
