@@ -19,9 +19,18 @@
             </div>
         </div>
         {% endfor %}
-        <div id="messageWindow">
-
+        
+        <div class="flex gap-5" >
+            <!-- <img class="w-9 h-9 rounded-full object-cover" src="{% static 'images/username1.jpeg' %}" alt=""> -->
+            <div class="flex flex-col max-w-[50%] gap-2 ">
+                <p class="text-gray-400 text-[0.9rem]"></p>
+                <div class="bg-green-600 text-[1rem] rounded-tl-md rounded-br-md rounded-bl-md">
+                    <p id="messageBlock">
+                    </p>
+                </div>
+            </div>
         </div>
+
     </div>
     <form id="formId" hx-on="htmx:beforeSend=event.preventDefault()" class="flex justify-center gap-5 h-[4.5rem] border-t-gray-600 border-t-2 items-center" ws-send hx-ws="send">
         <button>
