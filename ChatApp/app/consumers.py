@@ -52,9 +52,9 @@ class MyAsyncWebsocketConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data = None, bytes_data=None):
         data = json.loads(text_data)
         message = data.get("message")
-        html = get_template("rightbar/partials/chatText.html").render(context={'message': message})
         user = self.scope.get('user')
-        await save_message(sender = user, message = message, group_id = self.group_name)
+        other_user = await save_message(sender = user, message = message, group_id = self.group_name)
+        html = get_template("rightbar/partials/chatText.html").render(context={'message': message})
         # self.send(text_data=html)
         await self.channel_layer.group_send(self.group_name, {
             "type" : "chat.message",
@@ -71,6 +71,3 @@ class MyAsyncWebsocketConsumer(AsyncWebsocketConsumer):
         print('webscoket disconnected....', closed_code )
         # self.group_name = self.scope.get("url_route").get("kwargs").get("groupname")
         await self.channel_layer.group_discard(self.group_name, self.channel_name)
-    
-    async def save_message(self):
-        ...

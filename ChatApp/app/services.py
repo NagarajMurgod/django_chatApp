@@ -36,4 +36,5 @@ def get_or_create_privateChat(user1, user2):
 def save_message(sender, message, group_id):
     chat = Chats.objects.filter(group_id=group_id).first()
     Messages.objects.create(chat=chat, content=message, sender=sender)
+
     

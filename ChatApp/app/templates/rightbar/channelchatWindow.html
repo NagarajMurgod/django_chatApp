@@ -7,7 +7,7 @@
             <p class="text-gray-300 text-[0.8rem]">Online</p>
         </div>
     </div>
-    <div id="messageWindow" class="scroll-smooth px-10 my-8 flex flex-col gap-5 flex-1 overflow-y-auto" >
+    <div class="scroll-smooth px-10 my-8 flex flex-col gap-5 flex-1 overflow-y-auto" >
         {% for msg in object_list %}
         <div class="flex gap-5 {% if user.id == msg.sender.id %} flex-row-reverse {% endif %}" >
             <!-- <img class="w-9 h-9 rounded-full object-cover" src="{% static 'images/username1.jpeg' %}" alt=""> -->
@@ -19,6 +19,9 @@
             </div>
         </div>
         {% endfor %}
+        <div id="messageWindow">
+
+        </div>
     </div>
     <form id="formId" hx-on="htmx:beforeSend=event.preventDefault()" class="flex justify-center gap-5 h-[4.5rem] border-t-gray-600 border-t-2 items-center" ws-send hx-ws="send">
         <button>
