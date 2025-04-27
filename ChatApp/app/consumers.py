@@ -46,7 +46,10 @@ class MyAsyncWebsocketConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         print('websocket connected...')
         self.group_name = self.scope.get("url_route").get("kwargs").get("groupname")
+        user = self.scope.get('user')
         await self.channel_layer.group_add(self.group_name, self.channel_name)
+        if user.is_authenticated:
+            await self.set_user_online(user.id)
         await self.accept()
     
     async def receive(self, text_data = None, bytes_data=None):
@@ -69,5 +72,14 @@ class MyAsyncWebsocketConsumer(AsyncWebsocketConsumer):
     
     async def disconnect(self, closed_code):
         print('webscoket disconnected....', closed_code )
+        if user.is_authenticated:
+            await self.set_user_offline(user.id)
         # self.group_name = self.scope.get("url_route").get("kwargs").get("groupname")
         await self.channel_layer.group_discard(self.group_name, self.channel_name)
+    
+    async def set_user_online(self, user_id):
+        # Store a simple key in Redis
+        cache.set(f"user_online_{user_id}", True, timeout=None)
+
+    async def set_user_offline(self, user_id):
+        cache.delete(f"user_online_{user_id}")
