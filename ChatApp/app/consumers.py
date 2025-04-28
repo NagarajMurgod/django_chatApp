@@ -5,6 +5,7 @@ import json
 import asyncio
 from django.template.loader import get_template
 from .services import save_message
+from django.core.cache import cache
 
 class MyWebsocketConsumer(WebsocketConsumer):
     def connect(self):
@@ -46,10 +47,10 @@ class MyAsyncWebsocketConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         print('websocket connected...')
         self.group_name = self.scope.get("url_route").get("kwargs").get("groupname")
-        user = self.scope.get('user')
+        self.user = self.scope.get('user')
         await self.channel_layer.group_add(self.group_name, self.channel_name)
-        if user.is_authenticated:
-            await self.set_user_online(user.id)
+        if self.user.is_authenticated:
+            await self.set_user_online(self.user.id)
         await self.accept()
     
     async def receive(self, text_data = None, bytes_data=None):
@@ -72,8 +73,8 @@ class MyAsyncWebsocketConsumer(AsyncWebsocketConsumer):
     
     async def disconnect(self, closed_code):
         print('webscoket disconnected....', closed_code )
-        if user.is_authenticated:
-            await self.set_user_offline(user.id)
+        if self.user.is_authenticated:
+            await self.set_user_offline(self.user.id)
         # self.group_name = self.scope.get("url_route").get("kwargs").get("groupname")
         await self.channel_layer.group_discard(self.group_name, self.channel_name)
     

@@ -14,6 +14,8 @@ from django.shortcuts import get_object_or_404
 from django.views import View
 from .services import get_or_create_privateChat,get_chat_messages
 from .models import Chats,Messages
+from django.core.cache import cache
+
 
 User = get_user_model()
 
@@ -78,3 +80,9 @@ class SignInView(LoginView):
 class SignOutView(LogoutView):
     pass
 
+
+
+
+def user_status_dot(request, id):
+    is_online = cache.get(f"user_online_{id}") is not None
+    return render(request, 'partials/user_status.html', {'is_online': is_online,'id':id})
