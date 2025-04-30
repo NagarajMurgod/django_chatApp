@@ -73,8 +73,7 @@ class MyAsyncWebsocketConsumer(AsyncWebsocketConsumer):
     
     async def disconnect(self, closed_code):
         print('webscoket disconnected....', closed_code )
-        if self.user.is_authenticated:
-            await self.set_user_offline(self.user.id)
+        await self.set_user_offline(self.user.id)
         # self.group_name = self.scope.get("url_route").get("kwargs").get("groupname")
         await self.channel_layer.group_discard(self.group_name, self.channel_name)
     
