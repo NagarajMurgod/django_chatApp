@@ -1,5 +1,5 @@
 {% load static %}
-<div id = "chatWindow" class="w-[100%] bg-slate-800 h-full rounded-md flex flex-col" hx-ws="connect:ws/awsc/{{group_id}}/" >
+<div id="chatWindow" class="w-[100%] bg-slate-800 h-full rounded-md flex flex-col" hx-ws="connect:ws/awsc/{{group_id}}/" >
     <div class="flex gap-6 border-b-gray-600 border-b-2 h-[4.5rem] items-center px-9">
         <img class="w-11 h-11 rounded-full object-cover" src="media/{{other_user.profile_picture}}" alt="">
         <div>
@@ -57,7 +57,6 @@
             const lastChild = parent.lastElementChild;
             lastChild.classList.add('flex-row-reverse')
             const msg = lastChild.querySelector('#messageBlock');
-            console.log(msg.parentElement);
             msg.parentElement.classList.remove('bg-gray-300');
             msg.parentElement.classList.add('bg-green-600','text-white');
         }
@@ -72,6 +71,8 @@
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
         });
+
+        // document.body.addEventListener()
     </script>
 {% endblock %}
 
