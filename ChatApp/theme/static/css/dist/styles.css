@@ -357,6 +357,9 @@
   .w-12 {
     width: calc(var(--spacing) * 12);
   }
+  .w-100 {
+    width: calc(var(--spacing) * 100);
+  }
   .w-\[1\.5rem\] {
     width: 1.5rem;
   }
@@ -613,6 +616,12 @@
   .tracking-wide {
     --tw-tracking: var(--tracking-wide);
     letter-spacing: var(--tracking-wide);
+  }
+  .text-wrap {
+    text-wrap: wrap;
+  }
+  .wrap-break-word {
+    overflow-wrap: break-word;
   }
   .text-gray-100 {
     color: var(--color-gray-100);
