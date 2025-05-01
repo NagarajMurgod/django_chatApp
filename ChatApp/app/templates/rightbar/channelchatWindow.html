@@ -5,7 +5,7 @@
         <div>
             <h2 class="text-[16px] font-semibold tracking-wide text-white">{{other_user.username}}</h2>
             <!-- <p class="text-gray-300 text-[0.8rem]">online</p> -->
-            <p class="text-gray-300 text-[0.8rem]" hx-get="/user_status/{{other_user.id}}/"  hx-swap="outerHTML" hx-trigger="load every 20s" hx-target="this"></p>
+            <p class="text-gray-300 text-[0.8rem]" hx-get="/user_status/{{other_user.id}}/"  hx-swap="outerHTML" hx-trigger="every 3" hx-target="this"></p>
         </div>
     </div>
     <div id="message_window" class="scroll-smooth px-10 my-8 flex flex-col gap-5 flex-1 overflow-y-auto" >
